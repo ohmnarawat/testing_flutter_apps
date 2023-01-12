@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:testing_flutter_apps/pages/counter_page.dart';
+import 'package:testing_flutter_apps/pages/login_page.dart';
 import 'package:testing_flutter_apps/pages/widget_list_page.dart';
 
 void main() {
@@ -18,7 +19,8 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       // home: const CounterPage(title: 'Flutter Demo Home Page'),
-      home: const WidgetListPage(),
+      // home: const WidgetListPage(),
+      home: const LoginPage(),
     );
   }
 }
