@@ -16,9 +16,6 @@ extension DateFormatPattern on DateFormatEnum {
 }
 
 class DateUtils {
-  static const int _buddhistYearsOffset = 543;
-  static const String _slash = '/';
-
   static String? convertToString(
     DateTime? date,
     DateFormatEnum format, [
@@ -30,17 +27,17 @@ class DateUtils {
     final DateFormat dateFormat = DateFormat(format.pattern);
     String dateString = dateFormat.format(date);
     if (calendar == CalendarEnum.buddhist) {
-      List<String> split = dateString.split(_slash);
+      List<String> split = dateString.split('/');
       String day = split[0];
       String month = split[1];
       String shortYear = getShortYear(date, calendar);
       String fullYear = getFullYear(date, calendar);
       switch (format) {
         case DateFormatEnum.shortDate:
-          dateString = '$day$_slash$month$_slash$fullYear';
+          dateString = '$day/$month/$fullYear';
           break;
         case DateFormatEnum.shortDateShortYear:
-          dateString = '$day$_slash$month$_slash$shortYear';
+          dateString = '$day/$month/$shortYear';
           break;
       }
     }
@@ -77,7 +74,7 @@ class DateUtils {
       case CalendarEnum.gregorian:
         return date.year;
       case CalendarEnum.buddhist:
-        return date.year + _buddhistYearsOffset;
+        return date.year + 543;
     }
   }
 }
