@@ -1,5 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.narawat.flutter.testing_flutter_apps">
+    <!-- Required to fetch data from the internet. -->
+    <uses-permission android:name="android.permission.INTERNET" />
    <application
         android:label="testing_flutter_apps"
         android:name="${applicationName}"
