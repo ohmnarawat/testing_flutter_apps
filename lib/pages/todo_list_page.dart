@@ -17,27 +17,30 @@ class _TodoListPageState extends State<TodoListPage> {
       appBar: AppBar(
         title: const Text('Todo List'),
       ),
-      body: Column(
-        children: [
-          TextField(
-            controller: controller,
-          ),
-          Expanded(
-            child: ListView.builder(
-              itemCount: todos.length,
-              itemBuilder: (context, index) {
-                final todo = todos[index];
-
-                return Dismissible(
-                  key: Key('$todo$index'),
-                  onDismissed: (direction) => todos.removeAt(index),
-                  background: Container(color: Colors.red),
-                  child: ListTile(title: Text(todo)),
-                );
-              },
+      body: Padding(
+        padding: const EdgeInsets.all(32.0),
+        child: Column(
+          children: [
+            TextField(
+              controller: controller,
             ),
-          ),
-        ],
+            Expanded(
+              child: ListView.builder(
+                itemCount: todos.length,
+                itemBuilder: (context, index) {
+                  final todo = todos[index];
+
+                  return Dismissible(
+                    key: Key('$todo$index'),
+                    onDismissed: (direction) => todos.removeAt(index),
+                    background: Container(color: Colors.red),
+                    child: ListTile(title: Text(todo)),
+                  );
+                },
+              ),
+            ),
+          ],
+        ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
